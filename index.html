@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pengajuan Layanan</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Form Pengajuan Layanan</h2>
+
+<form id="formData">
+
+<label>Nama</label>
+<input type="text" id="nama" required>
+
+<label>NIM</label>
+<input type="text" id="nim" required>
+
+<label>Jenis Layanan</label>
+
+<select id="layanan" required>
+<option value="">-- Pilih --</option>
+<option>Akademik</option>
+<option>Administrasi</option>
+<option>Konsultasi</option>
+</select>
+
+<label>Keterangan</label>
+
+<textarea id="keterangan" required></textarea>
+
+<button type="submit" id="btnSubmit">Simpan</button>
+
+</form>
+
+<hr>
+
+<h2>Riwayat Pengajuan</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>No</th>
+<th>Nama</th>
+<th>NIM</th>
+<th>Jenis Layanan</th>
+<th>Keterangan</th>
+<th>Aksi</th>
+
+</tr>
+
+</thead>
+
+<tbody id="tableBody">
+
+</tbody>
+
+</table>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
