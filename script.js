@@ -1,3 +1,4 @@
+const search = document.getElementById("search");
 const form = document.getElementById("formData");
 const tableBody = document.getElementById("tableBody");
 const btnSubmit = document.getElementById("btnSubmit");
@@ -8,6 +9,26 @@ let editIndex = -1;
 
 // Tampilkan data saat halaman dibuka
 tampilkanData();
+
+search.addEventListener("keyup", function(){
+ 
+const keyword = this.value.toLowerCase();
+ 
+const hasil = dataList.filter(item =>
+ 
+item.nama.toLowerCase().includes(keyword) ||
+ 
+item.nim.toLowerCase().includes(keyword) ||
+ 
+item.layanan.toLowerCase().includes(keyword) ||
+ 
+item.keterangan.toLowerCase().includes(keyword)
+ 
+);
+ 
+tampilkanData(hasil);
+ 
+});
 
 form.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -35,31 +56,32 @@ form.addEventListener("submit", function (e) {
     tampilkanData();
 });
 
-function tampilkanData() {
-
+function tampilkanData(list = dataList){
+ 
     tableBody.innerHTML = "";
-
-    dataList.forEach((item, index) => {
-
+ 
+    list.forEach((item,index)=>{
+ 
         const row = document.createElement("tr");
-
+ 
         row.innerHTML = `
-            <td>${index + 1}</td>
+            <td>${index+1}</td>
             <td>${item.nama}</td>
             <td>${item.nim}</td>
             <td>${item.layanan}</td>
             <td>${item.keterangan}</td>
             <td>
-                <button class="edit" onclick="editData(${index})">Edit</button>
-                <button class="delete" onclick="hapusData(${index})">Hapus</button>
+                <button class="edit" onclick="editData(${dataList.indexOf(item)})">Edit</button>
+                <button class="delete" onclick="hapusData(${dataList.indexOf(item)})">Hapus</button>
             </td>
         `;
-
+ 
         tableBody.appendChild(row);
-
+ 
     });
-
+ 
 }
+ 
 
 function editData(index) {
 
