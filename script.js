@@ -48,6 +48,16 @@ form.addEventListener("submit", function (e) {
         return;
     }
 
+    const konfirmasi = confirm(
+    editIndex === -1
+        ? "Apakah Anda yakin ingin menyimpan data ini?"
+        : "Apakah Anda yakin ingin memperbarui data ini?"
+);
+
+if (!konfirmasi) {
+    return;
+}
+
     if (editIndex === -1) {
         dataList.push(data);
     } else {
