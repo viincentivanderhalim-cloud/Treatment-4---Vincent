@@ -123,3 +123,11 @@ function hapusData(index) {
 function simpanData() {
     localStorage.setItem("dataPengajuan", JSON.stringify(dataList));
 }
+
+document.getElementById("btnResetSearch").addEventListener("click", function () {
+
+    search.value = "";
+
+    tampilkanData();
+
+});

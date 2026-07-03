@@ -91,3 +91,12 @@ overflow-x:auto;
 }
 
 }
+
+#btnResetSearch{
+    background:#6c757d;
+    margin-top:10px;
+}
+
+#btnResetSearch:hover{
+    background:#5a6268;
+}
