@@ -1,78 +1,77 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pengajuan Layanan</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengajuan Layanan</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="container">
+    <div class="container">
 
-<h2>Form Pengajuan Layanan</h2>
+        <h2>Form Pengajuan Layanan</h2>
 
-<form id="formData">
+        <form id="formData">
 
-<label>Nama</label>
-<input type="text" id="nama" required>
+            <label>Nama</label>
+            <input type="text" id="nama" required>
 
-<label>NIM</label>
-<input type="text" id="nim" required>
+            <label>NIM</label>
+            <input type="text" id="nim" required maxlength="8" inputmode="numeric" placeholder="Masukkan NIM 8 digit">
 
-<label>Jenis Layanan</label>
+            <label>Jenis Layanan</label>
 
-<select id="layanan" required>
-<option value="">-- Pilih --</option>
-<option>Akademik</option>
-<option>Administrasi</option>
-<option>Konsultasi</option>
-</select>
+            <select id="layanan" required>
+                <option value="">-- Pilih --</option>
+                <option>Akademik</option>
+                <option>Administrasi</option>
+                <option>Konsultasi</option>
+            </select>
 
-<label>Keterangan</label>
+            <label>Keterangan</label>
 
-<textarea id="keterangan" required></textarea>
+            <textarea id="keterangan" required></textarea>
 
-<button type="submit" id="btnSubmit">Simpan</button>
+            <button type="submit" id="btnSubmit">Simpan</button>
 
-</form>
+        </form>
 
-<hr>
+        <hr>
 
-<h2>Riwayat Pengajuan</h2>
-<label>Cari Data</label>
-<input
-type="text"
-id="search"
-placeholder="Cari Nama, NIM, Jenis Layanan, atau Keterangan">
- 
-<table>
+        <h2>Riwayat Pengajuan</h2>
+        <label>Cari Data</label>
+        <input type="text" id="search" placeholder="Cari Nama, NIM, Jenis Layanan, atau Keterangan">
 
-<thead>
+        <table>
 
-<tr>
+            <thead>
 
-<th>No</th>
-<th>Nama</th>
-<th>NIM</th>
-<th>Jenis Layanan</th>
-<th>Keterangan</th>
-<th>Aksi</th>
+                <tr>
 
-</tr>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>NIM</th>
+                    <th>Jenis Layanan</th>
+                    <th>Keterangan</th>
+                    <th>Aksi</th>
 
-</thead>
+                </tr>
 
-<tbody id="tableBody">
+            </thead>
 
-</tbody>
+            <tbody id="tableBody">
 
-</table>
+            </tbody>
 
-</div>
+        </table>
 
-<script src="script.js"></script>
+    </div>
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>

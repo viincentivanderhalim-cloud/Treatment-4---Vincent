@@ -10,35 +10,43 @@ let editIndex = -1;
 // Tampilkan data saat halaman dibuka
 tampilkanData();
 
-search.addEventListener("keyup", function(){
- 
-const keyword = this.value.toLowerCase();
- 
-const hasil = dataList.filter(item =>
- 
-item.nama.toLowerCase().includes(keyword) ||
- 
-item.nim.toLowerCase().includes(keyword) ||
- 
-item.layanan.toLowerCase().includes(keyword) ||
- 
-item.keterangan.toLowerCase().includes(keyword)
- 
-);
- 
-tampilkanData(hasil);
- 
+search.addEventListener("keyup", function () {
+
+    const keyword = this.value.toLowerCase();
+
+    const hasil = dataList.filter(item =>
+
+        item.nama.toLowerCase().includes(keyword) ||
+
+        item.nim.toLowerCase().includes(keyword) ||
+
+        item.layanan.toLowerCase().includes(keyword) ||
+
+        item.keterangan.toLowerCase().includes(keyword)
+
+    );
+
+    tampilkanData(hasil);
+
 });
 
 form.addEventListener("submit", function (e) {
     e.preventDefault();
 
     const data = {
-        nama: document.getElementById("nama").value,
-        nim: document.getElementById("nim").value,
+        nama: document.getElementById("nama").value.trim(),
+        nim: document.getElementById("nim").value.trim(),
         layanan: document.getElementById("layanan").value,
-        keterangan: document.getElementById("keterangan").value
+        keterangan: document.getElementById("keterangan").value.trim()
     };
+
+    // Validasi NIM
+    const nimPattern = /^[0-9]{8}$/;
+
+    if (!nimPattern.test(data.nim)) {
+        alert("NIM harus terdiri dari 8 digit angka.");
+        return;
+    }
 
     if (editIndex === -1) {
         dataList.push(data);
@@ -56,16 +64,16 @@ form.addEventListener("submit", function (e) {
     tampilkanData();
 });
 
-function tampilkanData(list = dataList){
- 
+function tampilkanData(list = dataList) {
+
     tableBody.innerHTML = "";
- 
-    list.forEach((item,index)=>{
- 
+
+    list.forEach((item, index) => {
+
         const row = document.createElement("tr");
- 
+
         row.innerHTML = `
-            <td>${index+1}</td>
+            <td>${index + 1}</td>
             <td>${item.nama}</td>
             <td>${item.nim}</td>
             <td>${item.layanan}</td>
@@ -75,13 +83,13 @@ function tampilkanData(list = dataList){
                 <button class="delete" onclick="hapusData(${dataList.indexOf(item)})">Hapus</button>
             </td>
         `;
- 
+
         tableBody.appendChild(row);
- 
+
     });
- 
+
 }
- 
+
 
 function editData(index) {
 
